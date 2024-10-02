@@ -1,0 +1,13 @@
+<div>
+  <h2>Course List Works!</h2>
+
+  <input type="text" [(ngModel)]="course" placeholder="Enter course name" />
+  <button class="btn btn-primary" (click)="addCourse()">Add Course</button>
+
+  <ul>
+    <li *ngFor="let course of courseList; let i = index">
+      {{ course }}
+      <button (click)="removeCourse(i)">Remove</button>
+    </li>
+  </ul>
+</div>
