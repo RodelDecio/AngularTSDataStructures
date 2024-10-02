@@ -1,0 +1,14 @@
+<div>
+  <h2>Book List Works!</h2>
+
+  <input type="text" [(ngModel)]="book" placeholder="Enter book name" />
+  <button class="btn btn-primary" (click)="addBook()">Add Book</button>
+
+  <ul>
+    <li *ngFor="let book of bookList; let i = index">
+      {{ book }}
+      <button (click)="removeBook(i)">Remove</button>
+    </li>
+  </ul>
+</div>
+
