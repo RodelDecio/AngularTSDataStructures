@@ -1,0 +1,13 @@
+<div>
+  <h2>Employee List Works!</h2>
+
+  <input type="text" [(ngModel)]="employee" placeholder="Enter employee name" />
+  <button class="btn btn-primary" (click)="addEmployee()">Add Employee</button>
+
+  <ul>
+    <li *ngFor="let employee of employeeList; let i = index">
+      {{ employee }}
+      <button (click)="removeEmployee(i)">Remove</button>
+    </li>
+  </ul>
+</div>
