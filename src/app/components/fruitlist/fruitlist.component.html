@@ -1,0 +1,13 @@
+<div>
+  <h2>Fruit List Works!</h2>
+
+  <input type="text" [(ngModel)]="fruit" placeholder="Enter fruit name" />
+  <button class="btn btn-primary" (click)="addFruit()">Add Fruit</button>
+
+  <ul>
+    <li *ngFor="let fruit of fruitList; let i = index">
+      {{ fruit }}
+      <button (click)="removeFruit(i)">Remove</button>
+    </li>
+  </ul>
+</div>
