@@ -1,0 +1,14 @@
+<div>
+  <h2>Car Model List Works!</h2>
+
+  <input type="text" [(ngModel)]="carModel" placeholder="Enter car model name" />
+  <button class="btn btn-primary" (click)="addCarModel()">Add Car Model</button>
+
+  <ul>
+    <li *ngFor="let carModel of carModelList; let i = index">
+      {{ carModel }}
+      <button (click)="removeCarModel(i)">Remove</button>
+    </li>
+  </ul>
+</div>
+
