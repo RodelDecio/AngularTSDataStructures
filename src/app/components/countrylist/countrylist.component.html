@@ -1,0 +1,21 @@
+<div>
+  <h2>Country List by Continent</h2>
+
+  <select [(ngModel)]="continent">
+    <option value="">Select a Continent</option>
+    <option *ngFor="let item of countryList" [value]="item.continent">{{ item.continent }}</option>
+  </select>
+
+  <input type="text" [(ngModel)]="country" placeholder="Enter country name" />
+  <button class="btn btn-primary" (click)="addCountry()">Add Country</button>
+
+  <div *ngFor="let item of countryList">
+    <h3>{{ item.continent }}</h3>
+    <ul>
+      <li *ngFor="let country of item.countries; let i = index">
+        {{ country }}
+        <button (click)="removeCountry(item.continent, i)">Remove</button>
+      </li>
+    </ul>
+  </div>
+</div>

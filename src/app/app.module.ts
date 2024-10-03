@@ -15,6 +15,7 @@ import {MovieListComponent} from "./components/movielist/movielist.component";
 import {CarModelListComponent} from "./components/carmodellist/carmodellist.component";
 import {ProductListComponent} from "./components/productlist/productlist.component";
 import {SubjectListComponent} from "./components/subjectlist/subjectlist.component";
+import {CountryListComponent} from "./components/countrylist/countrylist.component";
 
 const routes: Routes = [
   {path: '', component: StudentListComponent},
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'carmodellist', component: CarModelListComponent},
   {path: 'productlist', component: ProductListComponent},
   {path: 'subjectlist', component: SubjectListComponent},
+  {path: 'countrylist', component: CountryListComponent},
 
 
 
@@ -55,6 +57,7 @@ const routes: Routes = [
     CarModelListComponent,
     ProductListComponent,
     SubjectListComponent,
+    CountryListComponent,
 
 
   ],
