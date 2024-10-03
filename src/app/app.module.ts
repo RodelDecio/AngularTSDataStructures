@@ -50,6 +50,7 @@ import {ComposerListComponent} from "./components/composerlist/composerlist.comp
 import {PodcastListComponent} from "./components/podcastlist/podcastlist.component";
 import {ExerciseListComponent} from "./components/exerciselist/exerciselist.component";
 import {MealPlanListComponent} from "./components/mealplanlist/mealplanlist.component";
+import {BudgetListComponent} from "./components/budgetlist/budgetlist.component";
 
 const routes: Routes = [
   {path: '', component: StudentListComponent},
@@ -95,6 +96,7 @@ const routes: Routes = [
   {path: 'podcastlist', component: PodcastListComponent},
   {path: 'exerciselist', component: ExerciseListComponent},
   {path: 'mealplanlist', component: MealPlanListComponent},
+  {path: 'budgetlist',component: BudgetListComponent},
 
 
 
@@ -156,6 +158,7 @@ const routes: Routes = [
     PodcastListComponent,
     ExerciseListComponent,
     MealPlanListComponent,
+    BudgetListComponent,
 
 
   ],
