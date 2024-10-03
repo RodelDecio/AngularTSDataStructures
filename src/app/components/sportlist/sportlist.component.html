@@ -1,0 +1,13 @@
+<div>
+  <h2>Sport List Works!</h2>
+
+  <input type="text" [(ngModel)]="sport" placeholder="Enter sport name" />
+  <button class="btn btn-primary" (click)="addSport()">Add Sport</button>
+
+  <ul>
+    <li *ngFor="let sport of sportList; let i = index">
+      {{ sport }}
+      <button (click)="removeSport(i)">Remove</button>
+    </li>
+  </ul>
+</div>
