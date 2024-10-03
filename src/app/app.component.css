@@ -1,36 +1,33 @@
-/* Basic styling for the navigation */
-nav {
-  background-color: #007bff; /* Primary color */
-  padding: 1rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+
+.button-container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 1rem;
+  padding: 1rem; /
 }
 
-/* Style for the links */
-nav a {
+.list-button {
+  background-color: #007bff;
   color: white;
-  text-decoration: none;
   font-size: 1.2rem;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   border-radius: 5px;
+  border: none;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-/* Hover effect for links */
-nav a:hover {
-  background-color: #0056b3; /* Darker shade of primary */
+.list-button:hover {
+  background-color: #0056b3;
 }
 
-/* Responsive design for smaller screens */
 @media (max-width: 768px) {
-  nav {
-    flex-direction: column;
+  .button-container {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  nav a {
-    margin-bottom: 10px;
+  .list-button {
     font-size: 1rem;
-    padding: 0.5rem 0.8rem;
+    padding: 0.8rem;
   }
 }

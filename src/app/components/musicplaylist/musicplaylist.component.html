@@ -1,0 +1,14 @@
+<div>
+  <h2>Music Playlist Works!</h2>
+
+  <input type="text" [(ngModel)]="song" placeholder="Enter song title" />
+  <button class="btn btn-primary" (click)="addSong()">Add Song</button>
+
+  <ul>
+    <li *ngFor="let song of songList; let i = index">
+      {{ song }}
+      <button (click)="removeSong(i)">Remove</button>
+    </li>
+  </ul>
+</div>
+

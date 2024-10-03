@@ -24,6 +24,7 @@ import {LanguageListComponent} from "./components/languagelist/languagelist.comp
 import {GameListComponent} from "./components/gamelist/gamelist.component";
 import {SoftwareListComponent} from "./components/softwarelist/softwarelist.component";
 import {PhoneListComponent} from "./components/phonelist/phonelist.component";
+import {MusicPlaylistComponent} from "./components/musicplaylist/musicplaylist.component";
 
 const routes: Routes = [
   {path: '', component: StudentListComponent},
@@ -45,6 +46,7 @@ const routes: Routes = [
   {path: 'gamelist', component: GameListComponent},
   {path: 'softwarelist', component: SoftwareListComponent},
   {path: 'phonelist', component: PhoneListComponent},
+  {path: 'musicplaylist', component: MusicPlaylistComponent},
 
 
 
@@ -82,6 +84,7 @@ const routes: Routes = [
     GameListComponent,
     SoftwareListComponent,
     PhoneListComponent,
+    MusicPlaylistComponent,
 
 
   ],
