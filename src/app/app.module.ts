@@ -28,6 +28,7 @@ import {MusicPlaylistComponent} from "./components/musicplaylist/musicplaylist.c
 import {FoodMenuComponent} from "./components/foodmenu/foodmenu.component";
 import {GroceryListComponent} from "./components/grocerylist/grocerylist.component";
 import {ClassroomListComponent} from "./components/classroomlist/classroomlist.component";
+import {InventoryListComponent} from "./components/inventorylist/inventorylist.component";
 
 const routes: Routes = [
   {path: '', component: StudentListComponent},
@@ -53,6 +54,7 @@ const routes: Routes = [
   {path: 'foodmenu', component: FoodMenuComponent},
   {path: 'grocerylist', component: GroceryListComponent},
   {path: 'classroomlist', component: ClassroomListComponent},
+  {path: 'inventorylist', component: InventoryListComponent},
 
 
 
@@ -94,6 +96,7 @@ const routes: Routes = [
     FoodMenuComponent,
     GroceryListComponent,
     ClassroomListComponent,
+    InventoryListComponent,
 
 
   ],
