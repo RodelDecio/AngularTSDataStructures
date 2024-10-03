@@ -56,6 +56,7 @@ import {TourListComponent} from "./components/tourlist/tourlist.component";
 import {EventListComponent} from "./components/eventlist/eventlist.component";
 import {DeveloperToolsListComponent} from "./components/developertoolslist/developertoolslist.component";
 import {FrameworkListComponent} from "./components/frameworklist/frameworklist.component";
+import {LibraryListComponent} from "./components/librarylist/librarylist.component";
 
 const routes: Routes = [
   {path: '', component: StudentListComponent},
@@ -107,6 +108,7 @@ const routes: Routes = [
   {path: 'eventlist', component: EventListComponent},
   {path: 'developertoolslist', component: DeveloperToolsListComponent},
   {path: 'frameworklist', component: FrameworkListComponent},
+  {path: 'librarylist', component: LibraryListComponent},
 
 
 
@@ -174,6 +176,7 @@ const routes: Routes = [
     EventListComponent,
     DeveloperToolsListComponent,
     FrameworkListComponent,
+    LibraryListComponent,
 
 
   ],
