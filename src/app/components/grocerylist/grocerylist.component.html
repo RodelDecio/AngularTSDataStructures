@@ -1,0 +1,14 @@
+<div>
+  <h2>Grocery List Works!</h2>
+
+  <input type="text" [(ngModel)]="groceryItem" placeholder="Enter grocery item" />
+  <button class="btn btn-primary" (click)="addGroceryItem()">Add Grocery Item</button>
+
+  <ul>
+    <li *ngFor="let groceryItem of groceryList; let i = index">
+      {{ groceryItem }}
+      <button (click)="removeGroceryItem(i)">Remove</button>
+    </li>
+  </ul>
+</div>
+
