@@ -1,0 +1,13 @@
+<div>
+  <h2>Product List Works!</h2>
+
+  <input type="text" [(ngModel)]="product" placeholder="Enter product name" />
+  <button class="btn btn-primary" (click)="addProduct()">Add Product</button>
+
+  <ul>
+    <li *ngFor="let product of productList; let i = index">
+      {{ product }}
+      <button (click)="removeProduct(i)">Remove</button>
+    </li>
+  </ul>
+</div>
