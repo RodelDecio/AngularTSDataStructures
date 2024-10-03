@@ -1,0 +1,13 @@
+<div>
+  <h2>Software List Works!</h2>
+
+  <input type="text" [(ngModel)]="software" placeholder="Enter software name" />
+  <button class="btn btn-primary" (click)="addSoftware()">Add Software</button>
+
+  <ul>
+    <li *ngFor="let software of softwareList; let i = index">
+      {{ software }}
+      <button (click)="removeSoftware(i)">Remove</button>
+    </li>
+  </ul>
+</div>
