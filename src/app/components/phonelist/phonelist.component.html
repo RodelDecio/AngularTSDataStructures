@@ -1,0 +1,15 @@
+<div>
+  <h2>Phone List Works!</h2>
+
+  <input type="text" [(ngModel)]="contact.name" placeholder="Enter name" />
+  <input type="text" [(ngModel)]="contact.number" placeholder="Enter phone number" />
+  <button class="btn btn-primary" (click)="addContact()">Add Contact</button>
+
+  <ul>
+    <li *ngFor="let contact of phoneList; let i = index">
+      {{ contact.name }} - {{ contact.number }}
+      <button (click)="removeContact(i)">Remove</button>
+    </li>
+  </ul>
+</div>
+
