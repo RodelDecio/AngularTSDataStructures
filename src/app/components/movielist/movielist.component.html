@@ -1,0 +1,14 @@
+<div>
+  <h2>Movie List Works!</h2>
+
+  <input type="text" [(ngModel)]="movie" placeholder="Enter movie name" />
+  <button class="btn btn-primary" (click)="addMovie()">Add Movie</button>
+
+  <ul>
+    <li *ngFor="let movie of movieList; let i = index">
+      {{ movie }}
+      <button (click)="removeMovie(i)">Remove</button>
+    </li>
+  </ul>
+</div>
+
