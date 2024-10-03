@@ -38,6 +38,7 @@ import {
   LaptopSpecificationsListComponent
 } from "./components/laptopspecificationslist/laptopspecificationslist.component";
 import {ComputerHardwareListComponent} from "./components/computerhardwarelist/computerhardwarelist.component";
+import {MobileAppListComponent} from "./components/mobileapplist/mobileapplist.component";
 
 const routes: Routes = [
   {path: '', component: StudentListComponent},
@@ -71,6 +72,7 @@ const routes: Routes = [
   {path: 'laptoplist', component: LaptopListComponent},
   {path: 'laptopspecificationslist', component: LaptopSpecificationsListComponent},
   {path: 'computerhardwarelist', component: ComputerHardwareListComponent},
+  {path: 'mobileapplist', component: MobileAppListComponent},
 
 
 
@@ -120,6 +122,7 @@ const routes: Routes = [
     LaptopListComponent,
     LaptopSpecificationsListComponent,
     ComputerHardwareListComponent,
+    MobileAppListComponent,
 
 
   ],
