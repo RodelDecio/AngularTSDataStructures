@@ -9,8 +9,8 @@ export class CityListService {
 
   constructor() {}
 
-  addCity(id: string, name: string, country: string, population: number, region: string): void {
-    this.cities.push({ id, name, country, population, region });
+  addCity( name: string, country: string, population: number, region: string): void {
+    this.cities.push({name, country, population, region });
   }
 
   getCities(): City[] {

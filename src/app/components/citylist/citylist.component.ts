@@ -9,7 +9,6 @@ import { City } from '../../interface/city';
 })
 export class CityListComponent {
   cities: City[] = [];
-  id: string = '';
   name: string = '';
   country: string = '';
   population: number = 0;
@@ -20,7 +19,8 @@ export class CityListComponent {
   }
 
   addCity(): void {
-    this.cityListService.addCity(this.id, this.name, this.country, this.population, this.region);
+
+    this.cityListService.addCity( this.name, this.country, this.population, this.region);
     this.clearForm();
   }
 
@@ -29,7 +29,6 @@ export class CityListComponent {
   }
 
   private clearForm(): void {
-    this.id = '';
     this.name = '';
     this.country = '';
     this.population = 0;

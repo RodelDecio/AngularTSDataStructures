@@ -1,9 +1,6 @@
 <div class="city-form">
   <h2>Add City</h2>
   <form (submit)="addCity()">
-    <label for="id">ID:</label>
-    <input type="text" id="id" [(ngModel)]="id" name="id" required />
-
     <label for="name">City Name:</label>
     <input type="text" id="name" [(ngModel)]="name" name="name" required />
 
@@ -25,7 +22,6 @@
   <table border="1">
     <thead>
     <tr>
-      <th>ID</th>
       <th>Name</th>
       <th>Country</th>
       <th>Population</th>
@@ -35,7 +31,6 @@
     </thead>
     <tbody>
     <tr *ngFor="let city of cities; let i = index">
-      <td>{{ city.id }}</td>
       <td>{{ city.name }}</td>
       <td>{{ city.country }}</td>
       <td>{{ city.population }}</td>

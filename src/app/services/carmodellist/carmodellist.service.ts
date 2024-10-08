@@ -21,3 +21,6 @@ export class CarModelService {
     this.carModels.splice(index, 1);
   }
 }
+
+export class CarModelListService {
+}
