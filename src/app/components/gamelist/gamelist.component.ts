@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { GameListService} from "../../services/gamelist/gamelist.service";
+import { Game } from '../../interface/game';
 
 @Component({
   selector: 'app-gamelist',
@@ -6,17 +8,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./gamelist.component.css']
 })
 export class GameListComponent {
-  gameList: string[] = ['The Legend of Zelda', 'Call of Duty', 'Minecraft', 'Fortnite'];
-  game: string = '';
+  games: Game[] = [];
+  title: string = '';
+  year: number = 0;
+
+  constructor(private gameListService: GameListService) {
+    this.games = this.gameListService.getGames();
+  }
 
   addGame(): void {
-    if (this.game.trim()) {
-      this.gameList.push(this.game.trim());
-      this.game = '';
-    }
+    this.gameListService.addGame(this.title, this.year);
+    this.title = '';
+    this.year = 0;
   }
 
   removeGame(index: number): void {
-    this.gameList.splice(index, 1);
+    this.gameListService.removeGame(index);
   }
 }
