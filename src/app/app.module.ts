@@ -15,7 +15,7 @@ import {CarModelListComponent} from "./components/carmodellist/carmodellist.comp
 import {ProductListComponent} from "./components/productlist/productlist.component";
 import {SubjectListComponent} from "./components/subjectlist/subjectlist.component";
 import {CountryListComponent} from "./components/countrylist/countrylist.component";
-import {SportListComponent} from "./components/sportlist/sportlist.component";
+import {SportsListComponent} from "./components/sportlist/sportlist.component";
 import {VegetableListComponent} from "./components/vegetablelist/vegetablelist.component";
 import {AnimalListComponent} from "./components/animallist/animallist.component";
 import {ToolListComponent} from "./components/toollist/toollist.component";
@@ -70,7 +70,7 @@ const routes: Routes = [
   {path: 'productlist', component: ProductListComponent},
   {path: 'subjectlist', component: SubjectListComponent},
   {path: 'countrylist', component: CountryListComponent},
-  {path: 'sportlist', component: SportListComponent},
+  {path: 'sportlist', component: SportsListComponent},
   {path: 'vegetablelist', component: VegetableListComponent},
   {path: 'animallist', component: AnimalListComponent},
   {path: 'toollist', component: ToolListComponent},
@@ -138,7 +138,7 @@ const routes: Routes = [
     ProductListComponent,
     SubjectListComponent,
     CountryListComponent,
-    SportListComponent,
+    SportsListComponent,
     VegetableListComponent,
     AnimalListComponent,
     ToolListComponent,

@@ -1,13 +1,34 @@
-<div>
-  <h2>Sport List Works!</h2>
+<div class="sports-form">
+  <h2>Add Sport</h2>
+  <form (submit)="addSport()">
+    <label for="id">ID:</label>
+    <input type="text" id="id" [(ngModel)]="id" name="id" required />
 
-  <input type="text" [(ngModel)]="sport" placeholder="Enter sport name" />
-  <button class="btn btn-primary" (click)="addSport()">Add Sport</button>
+    <label for="name">Sport:</label>
+    <input type="text" id="name" [(ngModel)]="name" name="name" required /><br><br>
 
-  <ul>
-    <li *ngFor="let sport of sportList; let i = index">
-      {{ sport }}
-      <button (click)="removeSport(i)">Remove</button>
-    </li>
-  </ul>
+    <button type="submit" class="btn btn-primary">Add Sport</button>
+  </form>
+</div>
+
+<div class="sports-list">
+  <h2>Sports List</h2>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Sport</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let sport of sports; let i = index">
+      <td>{{ sport.id }}</td>
+      <td>{{ sport.name }}</td>
+      <td>
+        <button (click)="removeSport(i)" class="remove-btn">Remove</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
