@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CityListService } from '../../services/citylist/citylist.service';
+import { City } from '../../interface/city';
 
 @Component({
   selector: 'app-citylist',
@@ -6,17 +8,31 @@ import { Component } from '@angular/core';
   styleUrls: ['./citylist.component.css']
 })
 export class CityListComponent {
-  cityList: string[] = ['Manila', 'Caloocan City', 'Quezon City', 'Taguig City'];
-  city: string = '';
+  cities: City[] = [];
+  id: string = '';
+  name: string = '';
+  country: string = '';
+  population: number = 0;
+  region: string = '';
+
+  constructor(private cityListService: CityListService) {
+    this.cities = this.cityListService.getCities();
+  }
 
   addCity(): void {
-    if (this.city.trim()) {
-      this.cityList.push(this.city.trim());
-      this.city = '';
-    }
+    this.cityListService.addCity(this.id, this.name, this.country, this.population, this.region);
+    this.clearForm();
   }
 
   removeCity(index: number): void {
-    this.cityList.splice(index, 1);
+    this.cityListService.removeCity(index);
+  }
+
+  private clearForm(): void {
+    this.id = '';
+    this.name = '';
+    this.country = '';
+    this.population = 0;
+    this.region = '';
   }
 }
