@@ -16,6 +16,7 @@ import {AnimalListComponent} from "./components/animallist/animallist.component"
 import {ToolListComponent} from "./components/toollist/toollist.component";
 import {LanguageListComponent} from "./components/languagelist/languagelist.component";
 import {GameListComponent} from "./components/gamelist/gamelist.component";
+import {SoftwareListComponent} from "./components/softwarelist/softwarelist.component";
 
 export const routes: Routes = [
   {
@@ -102,6 +103,11 @@ export const routes: Routes = [
     title: 'Game List',
     component: GameListComponent,
     path: 'gamelist',
+  },
+  {
+    title: 'Software List',
+    component: SoftwareListComponent,
+    path: 'softwarelist',
   },
 ];
 @NgModule({
