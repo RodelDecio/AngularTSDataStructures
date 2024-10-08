@@ -39,6 +39,3 @@ Make sure you commit each feature implementation to your GitHub repository. Ensu
 
 ## Hosting
 Upload it on Firebase hosting.
-
-
-
