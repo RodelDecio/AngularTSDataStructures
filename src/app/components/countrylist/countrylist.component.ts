@@ -1,34 +1,30 @@
 import { Component } from '@angular/core';
+import { CountryListService } from '../../services/countrylist/countrylist.service';
+import { Country } from '../../interface/country';
 
 @Component({
   selector: 'app-countrylist',
   templateUrl: './countrylist.component.html',
-  styleUrls: ['./countrylist.component.css']
+  styleUrl: './countrylist.component.css'
 })
 export class CountryListComponent {
-  countryList: { continent: string, countries: string[] }[] = [
-    { continent: 'Asia', countries: ['Philippines', 'China', 'Japan', 'India'] },
-    { continent: 'Europe', countries: [] },
-    { continent: 'Africa', countries: [] },
-    { continent: 'North America', countries: [] },
-    { continent: 'South America', countries: [] },
-    { continent: 'Australia/Oceania', countries: [] }
-  ];
+  countries: Country[] = [];
+  id: string = '';
+  name: string = '';
   continent: string = '';
-  country: string = '';
 
-  addCountry(): void {
-    const targetContinent = this.countryList.find(c => c.continent === this.continent);
-    if (targetContinent && this.country.trim()) {
-      targetContinent.countries.push(this.country.trim());
-      this.country = '';
-    }
+  constructor(private countryListService: CountryListService) {
+    this.countries = this.countryListService.getCountries();
   }
 
-  removeCountry(continent: string, countryIndex: number): void {
-    const targetContinent = this.countryList.find(c => c.continent === continent);
-    if (targetContinent) {
-      targetContinent.countries.splice(countryIndex, 1);
-    }
+  addCountry(): void {
+    this.countryListService.addCountry(this.id, this.name, this.continent);
+    this.id = '';
+    this.name = '';
+    this.continent = '';
+  }
+
+  removeCountry(index: number): void {
+    this.countryListService.removeCountry(index);
   }
 }

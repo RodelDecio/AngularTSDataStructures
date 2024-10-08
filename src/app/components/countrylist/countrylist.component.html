@@ -1,21 +1,39 @@
-<div>
-  <h2>Country List by Continent</h2>
+<div class="country-form">
+  <h2>Add Country</h2>
+  <form (submit)="addCountry()">
+    <label for="id">ID:</label>
+    <input type="text" id="id" [(ngModel)]="id" name="id" required />
 
-  <select [(ngModel)]="continent">
-    <option value="">Select a Continent</option>
-    <option *ngFor="let item of countryList" [value]="item.continent">{{ item.continent }}</option>
-  </select>
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="name" name="name" required />
 
-  <input type="text" [(ngModel)]="country" placeholder="Enter country name" />
-  <button class="btn btn-primary" (click)="addCountry()">Add Country</button>
+    <label for="continent">Continent:</label>
+    <input type="text" id="continent" [(ngModel)]="continent" name="continent" required /><br><br>
 
-  <div *ngFor="let item of countryList">
-    <h3>{{ item.continent }}</h3>
-    <ul>
-      <li *ngFor="let country of item.countries; let i = index">
-        {{ country }}
-        <button (click)="removeCountry(item.continent, i)">Remove</button>
-      </li>
-    </ul>
-  </div>
+    <button type="submit" class="btn btn-primary">Add Country</button>
+  </form>
+</div>
+
+<div class="country-list">
+  <h2>Country List</h2>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Continent</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let country of countries; let i = index">
+      <td>{{ country.id }}</td>
+      <td>{{ country.name }}</td>
+      <td>{{ country.continent }}</td>
+      <td>
+        <button (click)="removeCountry(i)" class="remove-btn">Remove</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
