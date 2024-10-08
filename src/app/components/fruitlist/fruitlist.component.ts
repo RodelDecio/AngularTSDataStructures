@@ -1,22 +1,33 @@
 import { Component } from '@angular/core';
+import { FruitListService } from '../../services/fruitlist/fruitlist.service';
+import { Fruit } from '../../interface/fruit';
 
 @Component({
   selector: 'app-fruitlist',
   templateUrl: './fruitlist.component.html',
-  styleUrls: ['./fruitlist.component.css']
 })
 export class FruitListComponent {
-  fruitList: string[] = ['Apple', 'Banana', 'Orange', 'Mango',];
-  fruit: string = '';
+  fruits: Fruit[] = [];
+  name: string = '';
+  color: string = '';
+
+  constructor(private fruitListService: FruitListService) {
+    this.fruits = this.fruitListService.getFruits();
+  }
 
   addFruit(): void {
-    if (this.fruit.trim()) {
-      this.fruitList.push(this.fruit.trim());
-      this.fruit = '';
+    if (!this.name || !this.color) {
+      alert('Please provide both name and color.');
+      return;
     }
+
+    this.fruitListService.addFruit(this.name, this.color);
+
+    this.name = '';
+    this.color = '';
   }
 
   removeFruit(index: number): void {
-    this.fruitList.splice(index, 1);
+    this.fruitListService.removeFruit(index);
   }
 }
