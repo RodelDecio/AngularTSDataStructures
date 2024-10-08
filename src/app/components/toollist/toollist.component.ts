@@ -1,22 +1,32 @@
 import { Component } from '@angular/core';
+import { ToolListService } from '../../services/toollist/toollist.service';
+import { Tool } from '../../interface/tool';
 
 @Component({
   selector: 'app-toollist',
   templateUrl: './toollist.component.html',
-  styleUrls: ['./toollist.component.css']
+  styleUrls: ['./toollist.component.css'],
 })
 export class ToolListComponent {
-  toolList: string[] = ['Hammer', 'Screwdriver', 'Wrench', 'Pliers'];
-  tool: string = '';
+  tools: Tool[] = [];
+  id: string = '';
+  name: string = '';
+  description: string = '';
+
+  constructor(private toolListService: ToolListService) {
+    this.tools = this.toolListService.getTools();
+  }
 
   addTool(): void {
-    if (this.tool.trim()) {
-      this.toolList.push(this.tool.trim());
-      this.tool = '';
+    if (this.id && this.name && this.description) {
+      this.toolListService.addTool(this.id, this.name, this.description);
+      this.id = '';
+      this.name = '';
+      this.description = '';
     }
   }
 
   removeTool(index: number): void {
-    this.toolList.splice(index, 1);
+    this.toolListService.removeTool(index);
   }
 }
