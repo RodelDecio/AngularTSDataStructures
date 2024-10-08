@@ -7,6 +7,7 @@ import {CourselistComponent} from "./components/courselist/courselist.component"
 import {BookListComponent} from "./components/booklist/booklist.component";
 import {CityListComponent} from "./components/citylist/citylist.component";
 import {MovieListComponent} from "./components/movielist/movielist.component";
+import {CarModelListComponent} from "./components/carmodellist/carmodellist.component";
 
 export const routes: Routes = [
   {
@@ -43,6 +44,11 @@ export const routes: Routes = [
     title: 'Movie List',
     component: MovieListComponent,
     path: 'movielist',
+  },
+  {
+    title: 'Car Model List',
+    component: CarModelListComponent,
+    path: 'carmodellist',
   },
 ];
 @NgModule({

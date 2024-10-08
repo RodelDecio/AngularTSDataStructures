@@ -1,14 +1,49 @@
-<div>
-  <h2>Car Model List Works!</h2>
+<div class="car-model-form">
+  <h2>Add Car Model</h2>
+  <form (submit)="addCarModel()">
+    <label for="id">ID:</label>
+    <input type="text" id="id" [(ngModel)]="id" name="id" required />
 
-  <input type="text" [(ngModel)]="carModel" placeholder="Enter car model name" />
-  <button class="btn btn-primary" (click)="addCarModel()">Add Car Model</button>
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="name" name="name" required />
 
-  <ul>
-    <li *ngFor="let carModel of carModelList; let i = index">
-      {{ carModel }}
-      <button (click)="removeCarModel(i)">Remove</button>
-    </li>
-  </ul>
+    <label for="brand">Brand:</label>
+    <input type="text" id="brand" [(ngModel)]="brand" name="brand" required />
+
+    <label for="year">Year:</label>
+    <input type="number" id="year" [(ngModel)]="year" name="year" required />
+
+    <label for="price">Price:</label>
+    <input type="number" id="price" [(ngModel)]="price" name="price" required /><br><br>
+
+    <button type="submit" class="btn btn-primary">Add Car Model</button>
+  </form>
 </div>
 
+<div class="car-model-list">
+  <h2>Car Model List</h2>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Brand</th>
+      <th>Year</th>
+      <th>Price</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let carModel of carModels; let i = index">
+      <td>{{ carModel.id }}</td>
+      <td>{{ carModel.name }}</td>
+      <td>{{ carModel.brand }}</td>
+      <td>{{ carModel.year }}</td>
+      <td>{{ carModel.price | currency:'PHP':'symbol':'1.2-2' }}</td>
+      <td>
+        <button (click)="removeCarModel(i)" class="remove-btn">Remove</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
