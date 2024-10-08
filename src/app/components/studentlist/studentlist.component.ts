@@ -1,7 +1,7 @@
 import { NgForOf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { StudentListService } from "../../services/studentlist.service";
+import { StudentListService } from "../../services/studentlist/studentlist.service";
 import { Student } from "../../interface/student";
 
 
