@@ -5,6 +5,7 @@ import { Fruit } from '../../interface/fruit';
 @Component({
   selector: 'app-fruitlist',
   templateUrl: './fruitlist.component.html',
+  styleUrls: ['./fruitlist.component.css']
 })
 export class FruitListComponent {
   fruits: Fruit[] = [];

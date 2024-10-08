@@ -5,6 +5,7 @@ import { Employee } from '../../interface/employee';
 @Component({
   selector: 'app-employeelist',
   templateUrl: './employeelist.component.html',
+  styleUrls: ['./employeelist.component.css']
 })
 export class EmployeeListComponent {
   employees: Employee[] = [];

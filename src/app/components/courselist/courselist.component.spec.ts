@@ -1,22 +1,23 @@
-import { Component } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-@Component({
-  selector: 'app-courselist',
-  templateUrl: './courselist.component.html',
-  styleUrls: ['./courselist.component.css']
-})
-export class CourseListComponent {
-  courseList: string[] = ['BSBA', 'BSED', 'BSIT', 'BSIS'];
-  course: string = '';
+import { CourselistComponent} from "./courselist.component";
 
-  addCourse(): void {
-    if (this.course.trim()) {
-      this.courseList.push(this.course.trim());
-      this.course = '';
-    }
-  }
+describe('CountrylistComponent', () => {
+  let component: CourselistComponent;
+  let fixture: ComponentFixture<CourselistComponent>;
 
-  removeCourse(index: number): void {
-    this.courseList.splice(index, 1);
-  }
-}
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [CourselistComponent]
+    })
+      .compileComponents();
+
+    fixture = TestBed.createComponent(CourselistComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

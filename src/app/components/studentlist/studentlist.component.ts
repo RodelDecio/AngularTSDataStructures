@@ -8,6 +8,7 @@ import { Student } from "../../interface/student";
 @Component({
   selector: 'app-studentlist',
   templateUrl: './studentlist.component.html',
+  styleUrl: './studentlist.component.css'
 
 })
 export class StudentListComponent {

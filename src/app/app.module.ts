@@ -8,7 +8,6 @@ import { FormsModule } from '@angular/forms';
 import { StudentListComponent } from "./components/studentlist/studentlist.component";
 import {EmployeeListComponent} from "./components/employeelist/employeelist.component";
 import {FruitListComponent} from "./components/fruitlist/fruitlist.component";
-import {CourseListComponent} from "./components/courselist/courselist.component.spec";
 import {BookListComponent} from "./components/booklist/booklist.component";
 import {CityListComponent} from "./components/citylist/citylist.component";
 import {MovieListComponent} from "./components/movielist/movielist.component";
@@ -57,12 +56,13 @@ import {EventListComponent} from "./components/eventlist/eventlist.component";
 import {DeveloperToolsListComponent} from "./components/developertoolslist/developertoolslist.component";
 import {FrameworkListComponent} from "./components/frameworklist/frameworklist.component";
 import {LibraryListComponent} from "./components/librarylist/librarylist.component";
+import {CourselistComponent} from "./components/courselist/courselist.component";
 
 const routes: Routes = [
   {path: '', component: StudentListComponent},
   {path: 'employeelist', component: EmployeeListComponent},
   {path: 'fruitlist', component: FruitListComponent},
-  {path: 'courselist', component: CourseListComponent},
+  {path: 'courselist', component: CourselistComponent},
   {path: 'booklist', component: BookListComponent},
   {path: 'citylist', component: CityListComponent},
   {path: 'movielist', component: MovieListComponent},
@@ -130,7 +130,7 @@ const routes: Routes = [
     StudentListComponent,
     EmployeeListComponent,
     FruitListComponent,
-    CourseListComponent,
+    CourselistComponent,
     BookListComponent,
     CityListComponent,
     MovieListComponent,
