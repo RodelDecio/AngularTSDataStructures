@@ -20,6 +20,7 @@ import {SoftwareListComponent} from "./components/softwarelist/softwarelist.comp
 import {PhoneListComponent} from "./components/phonelist/phonelist.component";
 import {MusicPlaylistComponent} from "./components/musicplaylist/musicplaylist.component";
 import {FoodMenuComponent} from "./components/foodmenu/foodmenu.component";
+import {GroceryListComponent} from "./components/grocerylist/grocerylist.component";
 
 export const routes: Routes = [
   {
@@ -127,6 +128,12 @@ export const routes: Routes = [
     component: FoodMenuComponent,
     path: 'foodmenulist',
   },
+  {
+    title: 'Grocery List',
+    component: GroceryListComponent,
+    path: 'grocerylist',
+  },
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
