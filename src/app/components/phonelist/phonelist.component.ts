@@ -1,28 +1,37 @@
 import { Component } from '@angular/core';
+import { PhoneListService } from '../../services/phonelist/phonelist.service';
+import { Phone} from "../../interface/phone";
 
 @Component({
   selector: 'app-phonelist',
   templateUrl: './phonelist.component.html',
   styleUrls: ['./phonelist.component.css']
+
 })
 export class PhoneListComponent {
-  phoneList: { name: string; number: string }[] = [
-    { name: 'Rodel Decio', number: '09123456789' },
-    { name: 'Lorenz Camo', number: '09874563210' },
-    { name: 'Rodel Calda', number: '09632587712' },
-    { name: 'Christine Maitom', number: '09514753268' }
-  ];
+  contacts: Phone[] = [];
+  id: string = '';
+  name: string = '';
+  phone: string = '';
+  email: string = '';
 
-  contact: { name: string; number: string } = { name: '', number: '' };
+  constructor(private phoneListService: PhoneListService) {
+    this.contacts = this.phoneListService.getContacts();
+  }
 
   addContact(): void {
-    if (this.contact.name.trim() && this.contact.number.trim()) {
-      this.phoneList.push({ name: this.contact.name.trim(), number: this.contact.number.trim() });
-      this.contact = { name: '', number: '' };
-    }
+    this.phoneListService.addContact(this.id, this.name, this.phone, this.email);
+    this.resetForm();
   }
 
   removeContact(index: number): void {
-    this.phoneList.splice(index, 1);
+    this.phoneListService.removeContact(index);
+  }
+
+  resetForm(): void {
+    this.id = '';
+    this.name = '';
+    this.phone = '';
+    this.email = '';
   }
 }
