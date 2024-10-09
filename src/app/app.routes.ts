@@ -24,6 +24,7 @@ import {GroceryListComponent} from "./components/grocerylist/grocerylist.compone
 import {ClassroomListComponent} from "./components/classroomlist/classroomlist.component";
 import {InventoryListComponent} from "./components/inventorylist/inventorylist.component";
 import {LectureListComponent} from "./components/lecturelist/lecturelist.component";
+import {StationeryListComponent} from "./components/stationerylist/stationerylist.component";
 
 
 export const routes: Routes = [
@@ -152,6 +153,12 @@ export const routes: Routes = [
     component: LectureListComponent,
     path: 'lecturelist',
   },
+  {
+    title: 'Stationery List',
+    component: StationeryListComponent,
+    path: 'stationerylist',
+  },
+
 
 ];
 @NgModule({
