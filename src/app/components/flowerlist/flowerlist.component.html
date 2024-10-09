@@ -1,14 +1,48 @@
-<div>
-  <h2>Flower List Works!</h2>
+<div class="flower-form">
+  <h2>Add Flower</h2>
+  <form (submit)="addFlower()">
+    <label for="id">ID:</label>
+    <input type="text" id="id" [(ngModel)]="id" name="id" required />
 
-  <input type="text" [(ngModel)]="flower" placeholder="Enter flower name" />
-  <button class="btn btn-primary" (click)="addFlower()">Add Flower</button>
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="name" name="name" required />
 
-  <ul>
-    <li *ngFor="let flower of flowerItems; let i = index">
-      {{ flower }}
-      <button (click)="removeFlower(i)">Remove</button>
-    </li>
-  </ul>
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" [(ngModel)]="quantity" name="quantity" required />
+
+    <label for="color">Color:</label>
+    <input type="text" id="color" [(ngModel)]="color" name="color" required />
+
+    <label for="type">Type:</label>
+    <input type="text" id="type" [(ngModel)]="type" name="type" required /><br>
+    <br><button type="submit" class="btn btn-primary">Add Flower</button>
+  </form>
 </div>
 
+<div class="flower-list">
+  <h2>Flower List</h2>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Color</th>
+      <th>Type</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let flower of flowers; let i = index">
+      <td>{{ flower.id }}</td>
+      <td>{{ flower.name }}</td>
+      <td>{{ flower.quantity }}</td>
+      <td>{{ flower.color }}</td>
+      <td>{{ flower.type }}</td>
+      <td>
+        <button (click)="removeFlower(i)" class="remove-btn">Remove</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

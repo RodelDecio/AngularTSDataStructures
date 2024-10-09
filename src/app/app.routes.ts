@@ -25,6 +25,7 @@ import {ClassroomListComponent} from "./components/classroomlist/classroomlist.c
 import {InventoryListComponent} from "./components/inventorylist/inventorylist.component";
 import {LectureListComponent} from "./components/lecturelist/lecturelist.component";
 import {StationeryListComponent} from "./components/stationerylist/stationerylist.component";
+import {FlowerListComponent} from "./components/flowerlist/flowerlist.component";
 
 
 export const routes: Routes = [
@@ -157,6 +158,11 @@ export const routes: Routes = [
     title: 'Stationery List',
     component: StationeryListComponent,
     path: 'stationerylist',
+  },
+  {
+    title: 'Flower List',
+    component: FlowerListComponent,
+    path: 'flowerlist',
   },
 
 
