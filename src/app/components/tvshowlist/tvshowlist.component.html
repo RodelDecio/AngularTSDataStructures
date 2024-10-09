@@ -1,14 +1,49 @@
-<div>
-  <h2>TV Show List Works!</h2>
+<div class="tvshow-form">
+  <h2>Add TV Show</h2>
+  <form (submit)="addTVShow()">
+    <label for="id">ID:</label>
+    <input type="text" id="id" [(ngModel)]="id" name="id" required />
 
-  <input type="text" [(ngModel)]="show" placeholder="Enter TV show title" />
-  <button class="btn btn-primary" (click)="addShow()">Add TV Show</button>
+    <label for="title">Title:</label>
+    <input type="text" id="title" [(ngModel)]="title" name="title" required />
 
-  <ul>
-    <li *ngFor="let show of shows; let i = index">
-      {{ show }}
-      <button (click)="removeShow(i)">Remove</button>
-    </li>
-  </ul>
+    <label for="genre">Genre:</label>
+    <input type="text" id="genre" [(ngModel)]="genre" name="genre" required />
+
+    <label for="seasons">Seasons:</label>
+    <input type="number" id="seasons" [(ngModel)]="seasons" name="seasons" required />
+
+    <label for="streamingService">Streaming Service:</label>
+    <input type="text" id="streamingService" [(ngModel)]="streamingService" name="streamingService" required /><br><br>
+
+    <button type="submit" class="btn btn-primary">Add TV Show</button>
+  </form>
 </div>
 
+<div class="tvshow-list">
+  <h2>TV Show List</h2>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Genre</th>
+      <th>Seasons</th>
+      <th>Streaming Service</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let tvshow of tvShows; let i = index">
+      <td>{{ tvshow.id }}</td>
+      <td>{{ tvshow.title }}</td>
+      <td>{{ tvshow.genre }}</td>
+      <td>{{ tvshow.seasons }}</td>
+      <td>{{ tvshow.streamingService }}</td>
+      <td>
+        <button (click)="removeTVShow(i)" class="remove-btn">Remove</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

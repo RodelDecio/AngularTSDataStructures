@@ -1,22 +1,44 @@
 import { Component } from '@angular/core';
+import { TVShowListService} from "../../services/tvshowlist/tvshowlist.service";
+import { TVShow } from '../../interface/tvshow';
 
 @Component({
   selector: 'app-tvshowlist',
   templateUrl: './tvshowlist.component.html',
-  styleUrls: ['./tvshowlist.component.css']
+  styleUrls: ['./tvshowlist.component.css'],
 })
 export class TVShowListComponent {
-  shows: string[] = ['The World at War', 'Game of Thrones', 'Stranger Things', 'The Crown'];
-  show: string = '';
+  tvShows: TVShow[] = [];
+  id: string = '';
+  title: string = '';
+  genre: string = '';
+  seasons: number = 0;
+  streamingService: string = '';
 
-  addShow(): void {
-    if (this.show.trim()) {
-      this.shows.push(this.show.trim());
-      this.show = '';
-    }
+  constructor(private tvShowService: TVShowListService) {
+    this.tvShows = this.tvShowService.getTVShows();
   }
 
-  removeShow(index: number): void {
-    this.shows.splice(index, 1);
+  addTVShow(): void {
+    this.tvShowService.addTVShow(
+      this.id,
+      this.title,
+      this.genre,
+      this.seasons,
+      this.streamingService
+    );
+    this.resetForm();
+  }
+
+  removeTVShow(index: number): void {
+    this.tvShowService.removeTVShow(index);
+  }
+
+  resetForm(): void {
+    this.id = '';
+    this.title = '';
+    this.genre = '';
+    this.seasons = 0;
+    this.streamingService = '';
   }
 }
