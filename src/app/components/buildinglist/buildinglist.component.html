@@ -1,14 +1,49 @@
-<div>
-  <h2>Building List Works!</h2>
+<div class="building-form">
+  <h2>Add Building</h2>
+  <form (submit)="addBuilding()">
+    <label for="id">ID:</label>
+    <input type="text" id="id" [(ngModel)]="id" name="id" required />
 
-  <input type="text" [(ngModel)]="building" placeholder="Enter building name" />
-  <button class="btn btn-primary" (click)="addBuilding()">Add Building</button>
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="name" name="name" required />
 
-  <ul>
-    <li *ngFor="let building of buildings; let i = index">
-      {{ building }}
-      <button (click)="removeBuilding(i)">Remove</button>
-    </li>
-  </ul>
+    <label for="location">Location:</label>
+    <input type="text" id="location" [(ngModel)]="location" name="location" required />
+
+    <label for="floors">Floors:</label>
+    <input type="number" id="floors" [(ngModel)]="floors" name="floors" required />
+
+    <label for="purpose">Purpose:</label>
+    <input type="text" id="purpose" [(ngModel)]="purpose" name="purpose" required /><br><br>
+
+    <button type="submit" class="btn btn-primary">Add Building</button>
+  </form>
 </div>
 
+<div class="buildinglist">
+  <h2>Building List</h2>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Floors</th>
+      <th>Purpose</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let building of buildings; let i = index">
+      <td>{{ building.id }}</td>
+      <td>{{ building.name }}</td>
+      <td>{{ building.location }}</td>
+      <td>{{ building.floors }}</td>
+      <td>{{ building.purpose }}</td>
+      <td>
+        <button (click)="removeBuilding(i)" class="remove-btn">Remove</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
