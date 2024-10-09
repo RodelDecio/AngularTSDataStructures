@@ -1,13 +1,48 @@
-<div>
-  <h2>Destination List Works!</h2>
+<div class="destination-form">
+  <h2>Add Destination</h2>
+  <form (submit)="addDestination()">
+    <label for="id">ID:</label>
+    <input type="text" id="id" [(ngModel)]="id" name="id" required />
 
-  <input type="text" [(ngModel)]="destination" placeholder="Enter destination" />
-  <button class="btn btn-primary" (click)="addDestination()">Add Destination</button>
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="name" name="name" required />
 
-  <ul>
-    <li *ngFor="let destination of destinationItems; let i = index">
-      {{ destination }}
-      <button (click)="removeDestination(i)">Remove</button>
-    </li>
-  </ul>
+    <label for="country">Country:</label>
+    <input type="text" id="country" [(ngModel)]="country" name="country" required />
+
+    <label for="description">Description:</label>
+    <input type="text" id="description" [(ngModel)]="description" name="description" required />
+
+    <label for="attractions">Attractions:</label>
+    <input type="text" id="attractions" [(ngModel)]="attractions" name="attractions" required /><br>
+    <br><button type="submit" class="btn btn-primary">Add Destination</button>
+  </form>
+</div>
+
+<div class="destination-list">
+  <h2>Destination List</h2>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Country</th>
+      <th>Description</th>
+      <th>Attractions</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let destination of destinations; let i = index">
+      <td>{{ destination.id }}</td>
+      <td>{{ destination.name }}</td>
+      <td>{{ destination.country }}</td>
+      <td>{{ destination.description }}</td>
+      <td>{{ destination.attractions }}</td>
+      <td>
+        <button (click)="removeDestination(i)" class="remove-btn">Remove</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
