@@ -1,15 +1,63 @@
-<div>
-  <h2>Laptop Specifications List Works!</h2>
+<div class="specifications-form">
+  <h2>Add Laptop Specifications</h2>
+  <form (submit)="addSpecification()">
+    <label for="id">ID:</label>
+    <input type="text" id="id" [(ngModel)]="id" name="id" required />
 
-  <input type="text" [(ngModel)]="model" placeholder="Enter laptop model" />
-  <input type="text" [(ngModel)]="specs" placeholder="Enter specifications" />
-  <button class="btn btn-primary" (click)="addSpecification()">Add Specification</button>
+    <label for="model">Model:</label>
+    <input type="text" id="model" [(ngModel)]="model" name="model" required />
 
-  <ul>
-    <li *ngFor="let specification of specifications; let i = index">
-      {{ specification.model }}: {{ specification.specs }}
-      <button (click)="removeSpecification(i)">Remove</button>
-    </li>
-  </ul>
+    <label for="processor">Processor:</label>
+    <input type="text" id="processor" [(ngModel)]="processor" name="processor" required />
+
+    <label for="ram">RAM:</label>
+    <input type="text" id="ram" [(ngModel)]="ram" name="ram" required />
+
+    <label for="storage">Storage:</label>
+    <input type="text" id="storage" [(ngModel)]="storage" name="storage" required />
+
+    <label for="graphics">Graphics:</label>
+    <input type="text" id="graphics" [(ngModel)]="graphics" name="graphics" required /><br><br>
+
+    <label for="display">Display:</label>
+    <input type="text" id="display" [(ngModel)]="display" name="display" required />
+
+    <label for="price">Price:</label>
+    <input type="number" id="price" [(ngModel)]="price" name="price" required /><br>
+    <br><button type="submit" class="btn btn-primary">Add Specification</button>
+  </form>
 </div>
 
+<div class="specifications-list">
+  <h2>Laptop Specifications List</h2>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Model</th>
+      <th>Processor</th>
+      <th>RAM</th>
+      <th>Storage</th>
+      <th>Graphics</th>
+      <th>Display</th>
+      <th>Price</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let spec of specifications; let i = index">
+      <td>{{ spec.id }}</td>
+      <td>{{ spec.model }}</td>
+      <td>{{ spec.processor }}</td>
+      <td>{{ spec.ram }}</td>
+      <td>{{ spec.storage }}</td>
+      <td>{{ spec.graphics }}</td>
+      <td>{{ spec.display }}</td>
+      <td>{{ spec.price | currency: 'PHP' }}</td>
+      <td>
+        <button (click)="removeSpecification(i)" class="remove-btn">Remove</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,29 +1,53 @@
 import { Component } from '@angular/core';
+import { LaptopSpecifactionListService} from "../../services/laptopspecificationlist/laptopspecifactionlist.service";
+import { LaptopSpecificationsList} from "../../interface/laptopspecifications";
 
 @Component({
   selector: 'app-laptopspecificationslist',
   templateUrl: './laptopspecificationslist.component.html',
-  styleUrls: ['./laptopspecificationslist.component.css']
+  styleUrls: ['./laptopspecificationslist.component.css'],
 })
 export class LaptopSpecificationsListComponent {
-  specifications: { model: string; specs: string }[] = [
-    { model: 'Dell XPS 13', specs: 'Intel Core i7, 16GB RAM, 512GB SSD' },
-    { model: 'MacBook Air', specs: 'Apple M1, 8GB RAM, 256GB SSD' },
-    { model: 'HP Spectre x360', specs: 'Intel Core i5, 8GB RAM, 256GB SSD' },
-    { model: 'Lenovo ThinkPad X1 Carbon', specs: 'Intel Core i7, 16GB RAM, 1TB SSD' }
-  ];
+  specifications: LaptopSpecificationsList[] = [];
+  id: string = '';
   model: string = '';
-  specs: string = '';
+  processor: string = '';
+  ram: string = '';
+  storage: string = '';
+  graphics: string = '';
+  display: string = '';
+  price: number = 0;
+
+  constructor(private specificationsService: LaptopSpecifactionListService) {
+    this.specifications = this.specificationsService.getSpecifications();
+  }
 
   addSpecification(): void {
-    if (this.model.trim() && this.specs.trim()) {
-      this.specifications.push({ model: this.model.trim(), specs: this.specs.trim() });
-      this.model = '';
-      this.specs = '';
-    }
+    this.specificationsService.addSpecification(
+      this.id,
+      this.model,
+      this.processor,
+      this.ram,
+      this.storage,
+      this.graphics,
+      this.display,
+      this.price
+    );
+    this.resetForm();
   }
 
   removeSpecification(index: number): void {
-    this.specifications.splice(index, 1);
+    this.specificationsService.removeSpecification(index);
+  }
+
+  resetForm(): void {
+    this.id = '';
+    this.model = '';
+    this.processor = '';
+    this.ram = '';
+    this.storage = '';
+    this.graphics = '';
+    this.display = '';
+    this.price = 0;
   }
 }
