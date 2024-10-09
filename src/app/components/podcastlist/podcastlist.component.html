@@ -1,13 +1,49 @@
-<div>
-  <h2>Podcast List Works!</h2>
+<div class="podcast-form">
+  <h2>Add Podcast Episode</h2>
+  <form (submit)="addPodcast()">
+    <label for="id">ID:</label>
+    <input type="text" id="id" [(ngModel)]="id" name="id" required />
 
-  <input type="text" [(ngModel)]="podcast" placeholder="Enter podcast episode title" />
-  <button class="btn btn-primary" (click)="addPodcast()">Add Podcast</button>
+    <label for="title">Title:</label>
+    <input type="text" id="title" [(ngModel)]="title" name="title" required />
 
-  <ul>
-    <li *ngFor="let podcast of podcasts; let i = index">
-      {{ podcast }}
-      <button (click)="removePodcast(i)">Remove</button>
-    </li>
-  </ul>
+    <label for="host">Host:</label>
+    <input type="text" id="host" [(ngModel)]="host" name="host" required />
+
+    <label for="releaseDate">Date:</label>
+    <input type="date" id="releaseDate" [(ngModel)]="releaseDate" name="date" required />
+    <label for="description">Description:</label>
+
+    <input type="text" id="description" [(ngModel)]="description" name="description" required /><br><br>
+
+    <button type="submit" class="btn btn-primary">Add Podcast</button>
+  </form>
+</div>
+
+<div class="podcastlist">
+  <h2>Podcast List</h2>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Host</th>
+      <th>Release Date</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let podcast of podcasts; let i = index">
+      <td>{{ podcast.id }}</td>
+      <td>{{ podcast.title }}</td>
+      <td>{{ podcast.host }}</td>
+      <td>{{ podcast.releaseDate | date }}</td>
+      <td>{{ podcast.description }}</td>
+      <td>
+        <button (click)="removePodcast(i)" class="remove-btn">Remove</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
