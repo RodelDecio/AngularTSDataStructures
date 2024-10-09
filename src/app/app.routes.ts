@@ -22,6 +22,8 @@ import {MusicPlaylistComponent} from "./components/musicplaylist/musicplaylist.c
 import {FoodMenuComponent} from "./components/foodmenu/foodmenu.component";
 import {GroceryListComponent} from "./components/grocerylist/grocerylist.component";
 import {ClassroomListComponent} from "./components/classroomlist/classroomlist.component";
+import {InventoryListComponent} from "./components/inventorylist/inventorylist.component";
+
 
 export const routes: Routes = [
   {
@@ -137,6 +139,11 @@ export const routes: Routes = [
   {
     title: 'Classroom List',
     component: ClassroomListComponent,
+    path: 'classroomlist',
+  },
+  {
+    title: 'Classroom List',
+    component: InventoryListComponent,
     path: 'classroomlist',
   },
 
