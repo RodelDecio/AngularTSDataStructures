@@ -1,22 +1,38 @@
 import { Component } from '@angular/core';
+import { AccessoryListService} from "../../services/accessorylist/accessorylist.service";
+import { Accessory } from '../../interface/accessory';
 
 @Component({
   selector: 'app-accessorylist',
   templateUrl: './accessorylist.component.html',
-  styleUrls: ['./accessorylist.component.css']
+  styleUrls: ['./accessorylist.component.css'],
 })
 export class AccessoryListComponent {
-  accessories: string[] = ['Phone Case', 'Screen Protector', 'Charger', 'Earphones'];
-  accessory: string = '';
+  accessories: Accessory[] = [];
+  id: string = '';
+  name: string = '';
+  type: string = '';
+  price: number = 0;
+  brand: string = '';
+
+  constructor(private accessoryService: AccessoryListService) {
+    this.accessories = this.accessoryService.getAccessories();
+  }
 
   addAccessory(): void {
-    if (this.accessory.trim()) {
-      this.accessories.push(this.accessory.trim());
-      this.accessory = '';
-    }
+    this.accessoryService.addAccessory(this.id, this.name, this.type, this.price, this.brand);
+    this.resetForm();
   }
 
   removeAccessory(index: number): void {
-    this.accessories.splice(index, 1);
+    this.accessoryService.removeAccessory(index);
+  }
+
+  resetForm(): void {
+    this.id = '';
+    this.name = '';
+    this.type = '';
+    this.price = 0;
+    this.brand = '';
   }
 }
