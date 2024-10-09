@@ -21,6 +21,7 @@ import {PhoneListComponent} from "./components/phonelist/phonelist.component";
 import {MusicPlaylistComponent} from "./components/musicplaylist/musicplaylist.component";
 import {FoodMenuComponent} from "./components/foodmenu/foodmenu.component";
 import {GroceryListComponent} from "./components/grocerylist/grocerylist.component";
+import {ClassroomListComponent} from "./components/classroomlist/classroomlist.component";
 
 export const routes: Routes = [
   {
@@ -132,6 +133,11 @@ export const routes: Routes = [
     title: 'Grocery List',
     component: GroceryListComponent,
     path: 'grocerylist',
+  },
+  {
+    title: 'Classroom List',
+    component: ClassroomListComponent,
+    path: 'classroomlist',
   },
 
 ];
