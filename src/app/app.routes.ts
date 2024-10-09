@@ -23,6 +23,7 @@ import {FoodMenuComponent} from "./components/foodmenu/foodmenu.component";
 import {GroceryListComponent} from "./components/grocerylist/grocerylist.component";
 import {ClassroomListComponent} from "./components/classroomlist/classroomlist.component";
 import {InventoryListComponent} from "./components/inventorylist/inventorylist.component";
+import {LectureListComponent} from "./components/lecturelist/lecturelist.component";
 
 
 export const routes: Routes = [
@@ -145,6 +146,11 @@ export const routes: Routes = [
     title: 'Classroom List',
     component: InventoryListComponent,
     path: 'classroomlist',
+  },
+  {
+    title: 'Lecture List',
+    component: LectureListComponent,
+    path: 'lecturelist',
   },
 
 ];
