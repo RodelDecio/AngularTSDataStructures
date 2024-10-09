@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MusicPlaylistService } from '../../services/musicplaylist/musicplaylist.service';
+import { musicplay } from '../../interface/musicplay';
 
 @Component({
   selector: 'app-musicplaylist',
@@ -6,17 +8,29 @@ import { Component } from '@angular/core';
   styleUrls: ['./musicplaylist.component.css']
 })
 export class MusicPlaylistComponent {
-  songList: string[] = ['Sariling Mundo', 'Somewhere only we know', 'Die for you', 'Janice'];
-  song: string = '';
+  songs: musicplay[] = [];
+  id: string = '';
+  title: string = '';
+  artist: string = '';
+  duration: string = '';
+
+  constructor(private musicPlaylistService: MusicPlaylistService) {
+    this.songs = this.musicPlaylistService.getSongs();
+  }
 
   addSong(): void {
-    if (this.song.trim()) {
-      this.songList.push(this.song.trim());
-      this.song = '';
-    }
+    this.musicPlaylistService.addSong(this.id, this.title, this.artist, this.duration);
+    this.resetForm();
   }
 
   removeSong(index: number): void {
-    this.songList.splice(index, 1);
+    this.musicPlaylistService.removeSong(index);
+  }
+
+  resetForm(): void {
+    this.id = '';
+    this.title = '';
+    this.artist = '';
+    this.duration = '';
   }
 }
