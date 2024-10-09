@@ -16,7 +16,6 @@ export class LaptopListComponent {
   brand: string = '';
   specifications: string = '';
   price: number = 0;
-
   constructor(private laptopService: LaptopListService, private currencyPipe: CurrencyPipe) {
     this.laptops = this.laptopService.getLaptops();
   }
@@ -29,7 +28,6 @@ export class LaptopListComponent {
   removeLaptop(index: number): void {
     this.laptopService.removeLaptop(index);
   }
-
   resetForm(): void {
     this.id = '';
     this.model = '';

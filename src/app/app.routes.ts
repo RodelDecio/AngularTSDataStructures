@@ -29,7 +29,6 @@ import {FlowerListComponent} from "./components/flowerlist/flowerlist.component"
 import {DestinationListComponent} from "./components/destinationlist/destinationlist.component";
 import {LaptopListComponent} from "./components/laptoplist/laptoplist.component";
 
-
 export const routes: Routes = [
   {
     title: 'Student List',
