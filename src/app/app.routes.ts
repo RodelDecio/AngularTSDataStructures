@@ -28,6 +28,10 @@ import {StationeryListComponent} from "./components/stationerylist/stationerylis
 import {FlowerListComponent} from "./components/flowerlist/flowerlist.component";
 import {DestinationListComponent} from "./components/destinationlist/destinationlist.component";
 import {LaptopListComponent} from "./components/laptoplist/laptoplist.component";
+import {
+  LaptopSpecificationsListComponent
+} from "./components/laptopspecificationslist/laptopspecificationslist.component";
+import {ComputerHardwareListComponent} from "./components/computerhardwarelist/computerhardwarelist.component";
 
 export const routes: Routes = [
   {
@@ -175,7 +179,16 @@ export const routes: Routes = [
     component: LaptopListComponent,
     path: 'laptoplist',
   },
-
+  {
+    title: 'Laptop Specification List',
+    component: LaptopSpecificationsListComponent,
+    path: 'laptopspecificationlist',
+  },
+  {
+    title: 'Computer Hardware List',
+    component: ComputerHardwareListComponent,
+    path: 'computerhardwarelist',
+  },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

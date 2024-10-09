@@ -1,14 +1,48 @@
-<div>
-  <h2>Computer Hardware List Works!</h2>
+<div class="hardware-form">
+  <h2>Add Computer Hardware</h2>
+  <form (submit)="addHardware()">
+    <label for="id">ID:</label>
+    <input type="text" id="id" [(ngModel)]="id" name="id" required />
 
-  <input type="text" [(ngModel)]="hardware" placeholder="Enter computer component" />
-  <button class="btn btn-primary" (click)="addHardware()">Add Component</button>
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="name" name="name" required />
 
-  <ul>
-    <li *ngFor="let item of hardwareItems; let i = index">
-      {{ item }}
-      <button (click)="removeHardware(i)">Remove</button>
-    </li>
-  </ul>
+    <label for="type">Type:</label>
+    <input type="text" id="type" [(ngModel)]="type" name="type" required />
+
+    <label for="manufacturer">Manufacturer:</label>
+    <input type="text" id="manufacturer" [(ngModel)]="manufacturer" name="manufacturer" required />
+
+    <label for="price">Price:</label>
+    <input type="number" id="price" [(ngModel)]="price" name="price" required /><br>
+    <br><button type="submit" class="btn btn-primary">Add Hardware</button>
+  </form>
 </div>
 
+<div class="hardwarelist">
+  <h2>Computer Hardware List</h2>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Manufacturer</th>
+      <th>Price</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let hardware of hardwareList; let i = index">
+      <td>{{ hardware.id }}</td>
+      <td>{{ hardware.name }}</td>
+      <td>{{ hardware.type }}</td>
+      <td>{{ hardware.manufacturer }}</td>
+      <td>{{ hardware.price | currency: 'PHP' }}</td>
+      <td>
+        <button (click)="removeHardware(i)" class="remove-btn">Remove</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
