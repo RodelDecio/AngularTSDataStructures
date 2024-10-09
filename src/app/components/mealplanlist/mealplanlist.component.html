@@ -1,14 +1,44 @@
-<div>
-  <h2>Meal Plan List Works!</h2>
+<div class="meal-plan-form">
+  <h2>Add Meal Plan</h2>
+  <form (submit)="addMeal()">
+    <label for="id">ID:</label>
+    <input type="text" id="id" [(ngModel)]="id" name="id" required />
 
-  <input type="text" [(ngModel)]="meal" placeholder="Enter meal details" />
-  <button class="btn btn-primary" (click)="addMeal()">Add Meal</button>
+    <label for="day">Day:</label>
+    <input type="text" id="day" [(ngModel)]="day" name="day" required />
 
-  <ul>
-    <li *ngFor="let meal of meals; let i = index">
-      {{ meal }}
-      <button (click)="removeMeal(i)">Remove</button>
-    </li>
-  </ul>
+    <label for="mealType">Meal Type:</label>
+    <input type="text" id="mealType" [(ngModel)]="mealType" name="mealType" required />
+
+    <label for="description">Description:</label>
+    <input type="text" id="description" [(ngModel)]="description" name="description" required /><br><br>
+
+    <button type="submit" class="btn btn-primary">Add Meal</button>
+  </form>
 </div>
 
+<div class="mealplanlist">
+  <h2>Meal Plan List</h2>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Day</th>
+      <th>Meal Type</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let meal of mealPlans; let i = index">
+      <td>{{ meal.id }}</td>
+      <td>{{ meal.day }}</td>
+      <td>{{ meal.mealType }}</td>
+      <td>{{ meal.description }}</td>
+      <td>
+        <button (click)="removeMeal(i)" class="remove-btn">Remove</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

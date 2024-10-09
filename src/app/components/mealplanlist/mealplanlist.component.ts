@@ -1,22 +1,36 @@
 import { Component } from '@angular/core';
+import { MealPlanListService} from "../../services/mealplanlist/mealplanlist.service";
+import { MealPlan } from '../../interface/mealplan';
 
 @Component({
   selector: 'app-mealplanlist',
   templateUrl: './mealplanlist.component.html',
-  styleUrls: ['./mealplanlist.component.css']
+  styleUrls: ['./mealplanlist.component.css'],
 })
 export class MealPlanListComponent {
-  meals: string[] = ['Breakfast: Oatmeal', 'Lunch: Grilled Chicken', 'Dinner: Salmon with Veggies'];
-  meal: string = '';
+  mealPlans: MealPlan[] = [];
+  id: string = '';
+  day: string = '';
+  mealType: string = '';
+  description: string = '';
+
+  constructor(private mealPlanService: MealPlanListService) {
+    this.mealPlans = this.mealPlanService.getMeals();
+  }
 
   addMeal(): void {
-    if (this.meal.trim()) {
-      this.meals.push(this.meal.trim());
-      this.meal = '';
-    }
+    this.mealPlanService.addMeal(this.id, this.day, this.mealType, this.description);
+    this.resetForm();
   }
 
   removeMeal(index: number): void {
-    this.meals.splice(index, 1);
+    this.mealPlanService.removeMeal(index);
+  }
+
+  resetForm(): void {
+    this.id = '';
+    this.day = '';
+    this.mealType = '';
+    this.description = '';
   }
 }
