@@ -33,6 +33,7 @@ import {
 } from "./components/laptopspecificationslist/laptopspecificationslist.component";
 import {ComputerHardwareListComponent} from "./components/computerhardwarelist/computerhardwarelist.component";
 import {MobileAppListComponent} from "./components/mobileapplist/mobileapplist.component";
+import {VideoListComponent} from "./components/videolist/videolist.component";
 
 export const routes: Routes = [
   {
@@ -194,6 +195,11 @@ export const routes: Routes = [
     title: 'Mobile App List',
     component: MobileAppListComponent,
     path: 'mobileapplist',
+  },
+  {
+    title: 'Video List',
+    component: VideoListComponent,
+    path: 'videolist',
   },
 ];
 @NgModule({
