@@ -1,14 +1,49 @@
-<div>
-  <h2>Mobile Apps List Works!</h2>
+<div class="app-form">
+  <h2>Add Mobile App</h2>
+  <form (submit)="addApp()">
+    <label for="id">ID:</label>
+    <input type="text" id="id" [(ngModel)]="id" name="id" required />
 
-  <input type="text" [(ngModel)]="app" placeholder="Enter app name" />
-  <button class="btn btn-primary" (click)="addApp()">Add App</button>
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="name" name="name" required />
 
-  <ul>
-    <li *ngFor="let app of apps; let i = index">
-      {{ app }}
-      <button (click)="removeApp(i)">Remove</button>
-    </li>
-  </ul>
+    <label for="category">Category:</label>
+    <input type="text" id="category" [(ngModel)]="category" name="category" required />
+
+    <label for="version">Version:</label>
+    <input type="text" id="version" [(ngModel)]="version" name="version" required />
+
+    <label for="developer">Developer:</label>
+    <input type="text" id="developer" [(ngModel)]="developer" name="developer" required /><br><br>
+
+    <button type="submit" class="btn btn-primary">Add App</button>
+  </form>
 </div>
 
+<div class="applist">
+  <h2>Mobile App List</h2>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Version</th>
+      <th>Developer</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let app of apps; let i = index">
+      <td>{{ app.id }}</td>
+      <td>{{ app.name }}</td>
+      <td>{{ app.category }}</td>
+      <td>{{ app.version }}</td>
+      <td>{{ app.developer }}</td>
+      <td>
+        <button (click)="removeApp(i)" class="remove-btn">Remove</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

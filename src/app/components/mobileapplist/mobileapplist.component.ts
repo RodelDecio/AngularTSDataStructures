@@ -1,22 +1,44 @@
 import { Component } from '@angular/core';
+import { MobileAppListService} from "../../services/mobileapplist/mobileapplist.service";
+import { MobileApp } from '../../interface/mobileapp';
 
 @Component({
   selector: 'app-mobileapplist',
   templateUrl: './mobileapplist.component.html',
-  styleUrls: ['./mobileapplist.component.css']
+  styleUrls: ['./mobileapplist.component.css'],
 })
 export class MobileAppListComponent {
-  apps: string[] = ['Google', 'Facebook', 'Instagram', 'YouTube'];
-  app: string = '';
+  apps: MobileApp[] = [];
+  id: string = '';
+  name: string = '';
+  category: string = '';
+  version: string = '';
+  developer: string = '';
+
+  constructor(private appService: MobileAppListService) {
+    this.apps = this.appService.getApps();
+  }
 
   addApp(): void {
-    if (this.app.trim()) {
-      this.apps.push(this.app.trim());
-      this.app = '';
-    }
+    this.appService.addApp(
+      this.id,
+      this.name,
+      this.category,
+      this.version,
+      this.developer
+    );
+    this.resetForm();
   }
 
   removeApp(index: number): void {
-    this.apps.splice(index, 1);
+    this.appService.removeApp(index);
+  }
+
+  resetForm(): void {
+    this.id = '';
+    this.name = '';
+    this.category = '';
+    this.version = '';
+    this.developer = '';
   }
 }
