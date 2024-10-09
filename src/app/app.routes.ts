@@ -34,6 +34,15 @@ import {
 import {ComputerHardwareListComponent} from "./components/computerhardwarelist/computerhardwarelist.component";
 import {MobileAppListComponent} from "./components/mobileapplist/mobileapplist.component";
 import {VideoListComponent} from "./components/videolist/videolist.component";
+import {TVShowListComponent} from "./components/tvshowlist/tvshowlist.component";
+import {FurnitureListComponent} from "./components/furniturelist/furniturelist.component";
+import {AccessoryListService} from "./services/accessorylist/accessorylist.service";
+import {BuildingListComponent} from "./components/buildinglist/buildinglist.component";
+import {PaintingListService} from "./services/paintinglist/paintinglist.service";
+import {PaintingListComponent} from "./components/paintinglist/paintinglist.component";
+import {ArtistListComponent} from "./components/artistlist/artistlist.component";
+import {ComposerListComponent} from "./components/composerlist/composerlist.component";
+import {PodcastListComponent} from "./components/podcastlist/podcastlist.component";
 
 export const routes: Routes = [
   {
@@ -200,6 +209,46 @@ export const routes: Routes = [
     title: 'Video List',
     component: VideoListComponent,
     path: 'videolist',
+  },
+  {
+    title: 'TV Show List',
+    component: TVShowListComponent,
+    path: 'tvshowlist',
+  },
+  {
+    title: 'Furniture List',
+    component: FurnitureListComponent,
+    path: 'furniturelist',
+  },
+  {
+    title: 'Accessory List',
+    component: AccessoryListService,
+    path: 'accessorylist',
+  },
+  {
+    title: 'Building List',
+    component: BuildingListComponent,
+    path: 'buildinglist',
+  },
+  {
+    title: 'Painting List',
+    component: PaintingListComponent,
+    path: 'paintinglist',
+  },
+  {
+    title: 'Artist List',
+    component: ArtistListComponent,
+    path: 'artistlist',
+  },
+  {
+    title: 'Composer List',
+    component: ComposerListComponent,
+    path: 'composerlist',
+  },
+  {
+    title: 'Podcast List',
+    component: PodcastListComponent,
+    path: 'podcastlist',
   },
 ];
 @NgModule({
