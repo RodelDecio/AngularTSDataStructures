@@ -1,14 +1,49 @@
-<div>
-  <h2>Composer List Works!</h2>
+<div class="composer-form">
+  <h2>Add Composer</h2>
+  <form (submit)="addComposer()">
+    <label for="id">ID:</label>
+    <input type="text" id="id" [(ngModel)]="id" name="id" required />
 
-  <input type="text" [(ngModel)]="composer" placeholder="Enter composer name" />
-  <button class="btn btn-primary" (click)="addComposer()">Add Composer</button>
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="name" name="name" required />
 
-  <ul>
-    <li *ngFor="let composer of composers; let i = index">
-      {{ composer }}
-      <button (click)="removeComposer(i)">Remove</button>
-    </li>
-  </ul>
+    <label for="birthYear">Birth Year:</label>
+    <input type="number" id="birthYear" [(ngModel)]="birthYear" name="birthYear" required />
+
+    <label for="nationality">Nationality:</label>
+    <input type="text" id="nationality" [(ngModel)]="nationality" name="nationality" required />
+
+    <label for="famousWorks">Famous Works:</label>
+    <input type="text" id="famousWorks" [(ngModel)]="famousWorks" name="famousWorks" required /><br><br>
+
+    <button type="submit" class="btn btn-primary">Add Composer</button>
+  </form>
 </div>
 
+<div class="composer-list">
+  <h2>Composer List</h2>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Birth Year</th>
+      <th>Nationality</th>
+      <th>Famous Works</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let composer of composers; let i = index">
+      <td>{{ composer.id }}</td>
+      <td>{{ composer.name }}</td>
+      <td>{{ composer.birthYear }}</td>
+      <td>{{ composer.nationality }}</td>
+      <td>{{ composer.famousWorks.join(', ') }}</td>
+      <td>
+        <button (click)="removeComposer(i)" class="remove-btn">Remove</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
