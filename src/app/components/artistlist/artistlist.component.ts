@@ -1,22 +1,38 @@
 import { Component } from '@angular/core';
+import { ArtistListService} from "../../services/artistlist/artistlist.service";
+import { Artist } from '../../interface/artist';
 
 @Component({
   selector: 'app-artistlist',
   templateUrl: './artistlist.component.html',
-  styleUrls: ['./artistlist.component.css']
+  styleUrls: ['./artistlist.component.css'],
 })
 export class ArtistListComponent {
-  artists: string[] = ['Vincent van Gogh', 'Pablo Picasso', 'Leonardo da Vinci', 'Claude Monet'];
-  artist: string = '';
+  artists: Artist[] = [];
+  id: string = '';
+  name: string = '';
+  birthYear: number = 0;
+  nationality: string = '';
+  famousWorks: string = '';
+
+  constructor(private artistService: ArtistListService) {
+    this.artists = this.artistService.getArtists();
+  }
 
   addArtist(): void {
-    if (this.artist.trim()) {
-      this.artists.push(this.artist.trim());
-      this.artist = '';
-    }
+    this.artistService.addArtist(this.id, this.name, this.birthYear, this.nationality, this.famousWorks.split(','));
+    this.resetForm();
   }
 
   removeArtist(index: number): void {
-    this.artists.splice(index, 1);
+    this.artistService.removeArtist(index);
+  }
+
+  resetForm(): void {
+    this.id = '';
+    this.name = '';
+    this.birthYear = 0;
+    this.nationality = '';
+    this.famousWorks = '';
   }
 }
