@@ -1,14 +1,44 @@
-<div>
-  <h2>Event List Works!</h2>
+<div class="event-form">
+  <h2>Add Upcoming Event</h2>
+  <form (submit)="addEvent()">
+    <label for="id">ID:</label>
+    <input type="text" id="id" [(ngModel)]="id" name="id" required />
 
-  <input type="text" [(ngModel)]="event" placeholder="Enter event" />
-  <button class="btn btn-primary" (click)="addEvent()">Add Event</button>
+    <label for="name">Event Name:</label>
+    <input type="text" id="name" [(ngModel)]="name" name="name" required />
 
-  <ul>
-    <li *ngFor="let event of events; let i = index">
-      {{ event }}
-      <button (click)="removeEvent(i)">Remove</button>
-    </li>
-  </ul>
+    <label for="date">Date:</label>
+    <input type="date" id="date" [(ngModel)]="date" name="date" required />
+
+    <label for="location">Location:</label>
+    <input type="text" id="location" [(ngModel)]="location" name="location" required /><br><br>
+
+    <button type="submit" class="btn btn-primary">Add Event</button>
+  </form>
 </div>
 
+<div class="event-list">
+  <h2>Event List</h2>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Event Name</th>
+      <th>Date</th>
+      <th>Location</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let event of events; let i = index">
+      <td>{{ event.id }}</td>
+      <td>{{ event.name }}</td>
+      <td>{{ event.date | date }}</td>
+      <td>{{ event.location }}</td>
+      <td>
+        <button (click)="removeEvent(i)" class="remove-btn">Remove</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

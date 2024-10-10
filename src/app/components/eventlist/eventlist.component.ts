@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { EventListService } from "../../services/eventlist/eventlist.service";
+import { Event } from "../../interface/event";
 
 @Component({
   selector: 'app-eventlist',
@@ -6,22 +8,31 @@ import { Component } from '@angular/core';
   styleUrls: ['./eventlist.component.css']
 })
 export class EventListComponent {
-  events: string[] = [
-    'Science Fair - October 15, 2024',
-    'Sports Day - October 22, 2024',
-    'Annual School Play - November 5, 2024',
-    'Thanksgiving Celebration - November 20, 2024'
-  ];
-  event: string = '';
+  events: Event[] = [];
+  id: string = '';
+  name: string = '';
+  date: string = '';
+  location: string = '';
+
+  constructor(private eventListService: EventListService) {
+    this.events = this.eventListService.getEvents();
+  }
 
   addEvent(): void {
-    if (this.event.trim()) {
-      this.events.push(this.event.trim());
-      this.event = '';
-    }
+    this.eventListService.addEvent(
+      this.id,
+      this.name,
+      this.date,
+      this.location
+    );
+
+    this.id = '';
+    this.name = '';
+    this.date = '';
+    this.location = '';
   }
 
   removeEvent(index: number): void {
-    this.events.splice(index, 1);
+    this.eventListService.removeEvent(index);
   }
 }
