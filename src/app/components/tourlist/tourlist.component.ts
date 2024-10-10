@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { TourListService } from "../../services/tourlist/tourlist.service";
+import { Tour } from "../../interface/tour";
 
 @Component({
   selector: 'app-tourlist',
@@ -6,22 +8,31 @@ import { Component } from '@angular/core';
   styleUrls: ['./tourlist.component.css']
 })
 export class TourListComponent {
-  tourDates: string[] = [
-    'December 10, 2024 - Manila, Philippines',
-    'December 15, 2024 - Cebu, Philippines',
-    'December 20, 2024 - Davao, Philippines',
-    'December 25, 2024 - Iloilo, Philippines'
-  ];
+  tours: Tour[] = [];
+  id: string = '';
+  city: string = '';
+  venue: string = '';
   date: string = '';
 
-  addTourDate(): void {
-    if (this.date.trim()) {
-      this.tourDates.push(this.date.trim());
-      this.date = '';
-    }
+  constructor(private tourListService: TourListService) {
+    this.tours = this.tourListService.getTours();
   }
 
-  removeTourDate(index: number): void {
-    this.tourDates.splice(index, 1);
+  addTour(): void {
+    this.tourListService.addTour(
+      this.id,
+      this.city,
+      this.venue,
+      this.date
+    );
+
+    this.id = '';
+    this.city = '';
+    this.venue = '';
+    this.date = '';
+  }
+
+  removeTour(index: number): void {
+    this.tours.splice(index, 1);
   }
 }

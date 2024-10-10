@@ -1,14 +1,44 @@
-<div>
-  <h2>Tour List Works!</h2>
+<div class="tour-form">
+  <h2>Add Tour Date</h2>
+  <form (submit)="addTour()">
+    <label for="id">ID:</label>
+    <input type="text" id="id" [(ngModel)]="id" name="id" required />
 
-  <input type="text" [(ngModel)]="date" placeholder="Enter tour date" />
-  <button class="btn btn-primary" (click)="addTourDate()">Add Tour Date</button>
+    <label for="city">City:</label>
+    <input type="text" id="city" [(ngModel)]="city" name="city" required />
 
-  <ul>
-    <li *ngFor="let date of tourDates; let i = index">
-      {{ date }}
-      <button (click)="removeTourDate(i)">Remove</button>
-    </li>
-  </ul>
+    <label for="venue">Venue:</label>
+    <input type="text" id="venue" [(ngModel)]="venue" name="venue" required />
+
+    <label for="date">Date:</label>
+    <input type="date" id="date" [(ngModel)]="date" name="date" required /><br><br>
+
+    <button type="submit" class="btn btn-primary">Add Tour Date</button>
+  </form>
 </div>
 
+<div class="tour-list">
+  <h2>Tour List</h2>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>City</th>
+      <th>Venue</th>
+      <th>Date</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let tour of tours; let i = index">
+      <td>{{ tour.id }}</td>
+      <td>{{ tour.city }}</td>
+      <td>{{ tour.venue }}</td>
+      <td>{{ tour.date | date }}</td>
+      <td>
+        <button (click)="removeTour(i)" class="remove-btn">Remove</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

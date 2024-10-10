@@ -47,6 +47,7 @@ import {ExerciseListComponent} from "./components/exerciselist/exerciselist.comp
 import {MealPlanListComponent} from "./components/mealplanlist/mealplanlist.component";
 import {BudgetListComponent} from "./components/budgetlist/budgetlist.component";
 import {PresentationListComponent} from "./components/presentationlist/presentationlist.component";
+import {TourListComponent} from "./components/tourlist/tourlist.component";
 
 export const routes: Routes = [
   {
@@ -274,6 +275,11 @@ export const routes: Routes = [
     component: PresentationListComponent,
     path: 'presentationlist',
   },
+  {
+  title: 'Tour List',
+  component: TourListComponent,
+  path: 'tourlist',
+},
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
