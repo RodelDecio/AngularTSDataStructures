@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FrameworkListService } from '../../services/frameworklist/frameworklist.service';
+import { Framework } from '../../interface/framework';
 
 @Component({
   selector: 'app-frameworklist',
@@ -6,22 +8,31 @@ import { Component } from '@angular/core';
   styleUrls: ['./frameworklist.component.css']
 })
 export class FrameworkListComponent {
-  frameworks: string[] = [
-    'Angular',
-    'React',
-    'Vue.js',
-    'Django'
-  ];
-  framework: string = '';
+  frameworks: Framework[] = [];
+  id: string = '';
+  name: string = '';
+  description: string = '';
+  language: string = '';
+
+  constructor(private frameworkListService: FrameworkListService) {
+    this.frameworks = this.frameworkListService.getFrameworks();
+  }
 
   addFramework(): void {
-    if (this.framework.trim()) {
-      this.frameworks.push(this.framework.trim());
-      this.framework = '';
-    }
+    this.frameworkListService.addFramework(
+      this.id,
+      this.name,
+      this.description,
+      this.language
+    );
+
+    this.id = '';
+    this.name = '';
+    this.description = '';
+    this.language = '';
   }
 
   removeFramework(index: number): void {
-    this.frameworks.splice(index, 1);
+    this.frameworkListService.removeFramework(index);
   }
 }
