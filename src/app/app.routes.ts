@@ -51,6 +51,7 @@ import {TourListComponent} from "./components/tourlist/tourlist.component";
 import {EventListComponent} from "./components/eventlist/eventlist.component";
 import {DeveloperToolsListComponent} from "./components/developertoolslist/developertoolslist.component";
 import {FrameworkListComponent} from "./components/frameworklist/frameworklist.component";
+import {LibraryListComponent} from "./components/librarylist/librarylist.component";
 
 export const routes: Routes = [
   {
@@ -297,6 +298,11 @@ export const routes: Routes = [
     title: 'Framework List',
     component: FrameworkListComponent,
     path: 'frameworklist',
+  },
+  {
+    title: 'Library List',
+    component: LibraryListComponent,
+    path: 'librarylist',
   },
 
 

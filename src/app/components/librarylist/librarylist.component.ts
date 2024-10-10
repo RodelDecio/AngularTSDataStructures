@@ -1,27 +1,37 @@
 import { Component } from '@angular/core';
+import { LibraryListService } from '../../services/librarylist/librarylist.service';
+import { Library } from '../../interface/library';
 
 @Component({
   selector: 'app-librarylist',
   templateUrl: './librarylist.component.html',
-  styleUrls: ['./librarylist.component.css']
+  styleUrls: ['./librarylist.component.css'],
 })
 export class LibraryListComponent {
-  libraries: string[] = [
-    'RxJS',
-    'NgRx',
-    'Bootstrap',
-    'Moment.js'
-  ];
-  library: string = '';
+  libraries: Library[] = [];
+  id: string = '';
+  name: string = '';
+  version: string = '';
+  description: string = '';
 
-  addLibrary(): void {
-    if (this.library.trim()) {
-      this.libraries.push(this.library.trim());
-      this.library = '';
-    }
+  constructor(private libraryListService: LibraryListService) {
+    this.libraries = this.libraryListService.getLibraries();
   }
 
-  removeLibrary(index: number): void {
-    this.libraries.splice(index, 1);
+  addLibrary(): void {
+    this.libraryListService.addLibrary(this.id, this.name, this.version, this.description);
+
+
+  }
+
+  removelibrary(index: number): void {
+    this.libraryListService.removelibrary(index);
+  }
+
+  resetForm(): void {
+    this.id = '';
+    this.name = '';
+    this.version = '';
+    this.description = '';
   }
 }
