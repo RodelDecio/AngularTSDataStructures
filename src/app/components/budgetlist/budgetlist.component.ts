@@ -1,28 +1,38 @@
 import { Component } from '@angular/core';
+import { BudgetListService} from "../../services/budgetlist/budgetlist.service";
+import { Budget } from '../../interface/budget';
 
 @Component({
   selector: 'app-budgetlist',
   templateUrl: './budgetlist.component.html',
-  styleUrls: ['./budgetlist.component.css']
+  styleUrls: ['./budgetlist.component.css'],
 })
 export class BudgetListComponent {
-  budgetItems: { name: string; amount: number }[] = [
-    { name: 'Marketing', amount: 10000 },
-    { name: 'Development', amount: 50000 },
-    { name: 'Design', amount: 20000 }
-  ];
-  itemName: string = '';
-  itemAmount: number | null = null;
+  budgetItems: Budget[] = [];
+  id: string = '';
+  description: string = '';
+  amount: number | null = null;
+  date: Date | null = null;
+
+  constructor(private budgetService: BudgetListService) {
+    this.budgetItems = this.budgetService.getBudgetItems();
+  }
 
   addBudgetItem(): void {
-    if (this.itemName.trim() && this.itemAmount !== null) {
-      this.budgetItems.push({ name: this.itemName.trim(), amount: this.itemAmount });
-      this.itemName = '';
-      this.itemAmount = null;
+    if (this.amount !== null && this.date) {
+      this.budgetService.addBudgetItem(this.id, this.description, this.amount, this.date);
+      this.resetForm();
     }
   }
 
   removeBudgetItem(index: number): void {
-    this.budgetItems.splice(index, 1);
+    this.budgetService.removeBudgetItem(index);
+  }
+
+  resetForm(): void {
+    this.id = '';
+    this.description = '';
+    this.amount = null;
+    this.date = null;
   }
 }
