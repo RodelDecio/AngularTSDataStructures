@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PresentationListService } from "../../services/presentationlist/presentationlist.service";
+import { Presentation } from "../../interface/presentation";
 
 @Component({
   selector: 'app-presentationlist',
@@ -6,22 +8,31 @@ import { Component } from '@angular/core';
   styleUrls: ['./presentationlist.component.css']
 })
 export class PresentationListComponent {
-  presentationTopics: string[] = [
-    'Introduction to Angular',
-    'Understanding TypeScript',
-    'Data Structures in Angular',
-    'Building Responsive Web Applications'
-  ];
-  topic: string = '';
+  presentations: Presentation[] = [];
+  id: string = '';
+  title: string = '';
+  presenter: string = '';
+  date: string = '';
 
-  addPresentationTopic(): void {
-    if (this.topic.trim()) {
-      this.presentationTopics.push(this.topic.trim());
-      this.topic = '';
-    }
+  constructor(private presentationListService: PresentationListService) {
+    this.presentations = this.presentationListService.getPresentations();
   }
 
-  removePresentationTopic(index: number): void {
-    this.presentationTopics.splice(index, 1);
+  addPresentation(): void {
+    this.presentationListService.addPresentation(
+      this.id,
+      this.title,
+      this.presenter,
+      this.date
+    );
+
+    this.id = '';
+    this.title = '';
+    this.presenter = '';
+    this.date = '';
+  }
+
+  removePresentation(index: number): void {
+    this.presentations.splice(index, 1);
   }
 }
